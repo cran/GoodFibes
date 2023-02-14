@@ -1,0 +1,17 @@
+export("good.fibes", "fibers.smoothed", "muscle.plot", "muscle.plot.multi",
+       "fiber.lengths", "crop.stack", "thresholdPlot", "sequencePlot",
+       "equalize.stack", "quality.check", "check.overlap", "muscle.plot.stl",
+       "color.scale", "fuse.fibers", "fuse.fibers.auto", "fiber.curve", "fiber.angle")
+importFrom("rgl", plot3d, points3d, lines3d, open3d, writeSTL)
+importFrom("concaveman",concaveman)
+importFrom("grDevices",colorRampPalette, boxplot.stats)
+importFrom("prodlim",row.match)
+importFrom("splines",ns)
+importFrom("stats",lm, predict,hclust,cutree,sd,quantile,IQR,dist,ecdf,na.omit)
+importFrom("graphics",plot,points,barplot,text,abline)
+import("imager")
+
+
+
+
+

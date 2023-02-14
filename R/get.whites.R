@@ -1,0 +1,32 @@
+get.whites <-
+function(imglist,lpl,depth,backstep=0){
+  white.mat<-matrix(nrow=length(lpl),ncol=depth)
+  white<-vector(length=depth)
+  for(m in 1:length(lpl)){
+    one.line<-lpl[[m]]
+    white[1]<-as.matrix(imglist[[1]])[one.line[1,1],one.line[1,2]]
+    white[2]<-as.matrix(imglist[[one.line[2,3]+1]])[one.line[2,1],one.line[2,2]]
+    if(depth>=3){
+      white[3]<-as.matrix(imglist[[one.line[3,3]+1+backstep]])[one.line[3,1],one.line[3,2]]}
+    if(depth>=4){
+      white[4]<-as.matrix(imglist[[one.line[4,3]+1+backstep]])[one.line[4,1],one.line[4,2]]}
+    if(depth>=5){
+      white[5]<-as.matrix(imglist[[one.line[5,3]+1+backstep]])[one.line[5,1],one.line[5,2]]}
+    if(depth>=6){
+      white[6]<-as.matrix(imglist[[one.line[6,3]+1+backstep]])[one.line[6,1],one.line[6,2]]}
+    if(depth>=7){
+      white[7]<-as.matrix(imglist[[one.line[7,3]+1+backstep]])[one.line[7,1],one.line[7,2]]}
+    if(depth>=8){
+      white[8]<-as.matrix(imglist[[one.line[8,3]+1+backstep]])[one.line[8,1],one.line[8,2]]}
+    if(depth>=9){
+      white[9]<-as.matrix(imglist[[one.line[9,3]+1+backstep]])[one.line[9,1],one.line[9,2]]}
+    if(depth>=10){
+      white[10]<-as.matrix(imglist[[one.line[10,3]+1+backstep]])[one.line[10,1],one.line[10,2]]}
+    if(depth>=11){
+      white[11]<-as.matrix(imglist[[one.line[11,3]+1+backstep]])[one.line[11,1],one.line[11,2]]}
+    if(depth>=12){
+      white[12]<-as.matrix(imglist[[one.line[12,3]+1+backstep]])[one.line[12,1],one.line[12,2]]}
+    white.mat[m,]<-white
+  }
+  return(white.mat)
+}
