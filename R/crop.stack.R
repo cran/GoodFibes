@@ -1,5 +1,14 @@
 crop.stack <-
 function(images, bounds=NULL, save.images=FALSE){
+  
+  
+  if(!is.null(bounds)){
+    xmin<-bounds[1]
+    xmax<-bounds[2]
+    ymin<-bounds[3]
+    ymax<-bounds[4]
+  } else {
+  
   boundaries<-vector(length = length(images),mode="list")
   for(i in 1:length(boundaries)){
     slice<-which(!load.image(images[i])==0, arr.ind = T)[,1:2]
@@ -31,17 +40,7 @@ function(images, bounds=NULL, save.images=FALSE){
   
   if(xmin<0){xmin<-0}
   if(ymin<0){ymin<-0}
-  
-  
-  if(!is.null(bounds)){
-    xmin<-bounds[1]
-    xmax<-bounds[2]
-    ymin<-bounds[3]
-    ymax<-bounds[4]
   }
-  
-  
-  
 
   message("cropping images")
   for(i in 1:length(images)){

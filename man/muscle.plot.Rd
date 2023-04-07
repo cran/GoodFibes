@@ -59,7 +59,7 @@ setwd(paste0(getwd(),"/Ant data"))
 images<-list.files(pattern=".png")
 
 data(ant.final)
-muscle.plot(ant.final[[100]]$fiber.points,images,df=1, outline=30)
+muscle.plot(ant.final[[100]]$fiber.points,images,df=1, outline=30, mirror.axis=TRUE)
 setwd(olddir)
 }
 }

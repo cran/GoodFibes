@@ -1,5 +1,5 @@
-\name{points.generator}
-\alias{points.generator}
+\name{pointsGenerator}
+\alias{pointsGenerator}
 \title{
 Line points generator
 }
@@ -7,7 +7,7 @@ Line points generator
 An internal function for generating line coordinates for all possible paths of the good.fibes tracking algorithm.
 }
 \usage{
-points.generator(startx, starty, ucoords, radius = radius, backstep)
+pointsGenerator(startx, starty, ucoords, radius = radius, backstep)
 }
 \arguments{
   \item{startx}{

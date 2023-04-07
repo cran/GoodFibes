@@ -2,8 +2,8 @@ Package: GoodFibes
 Type: Package
 Title: Detection and Reconstruction of Muscle Fibers from diceCT Image
         Data
-Version: 0.1.7
-Date: 2023-02-13
+Version: 0.1.8
+Date: 2023-04-7
 Authors@R: 
     person("Jessica", "Arbour", , "jessica.arbour@mtsu.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4506-158X"))
@@ -12,8 +12,8 @@ License: GPL (>= 2)
 Depends: R(>= 3.5.0), imager
 Imports: rgl, stats, graphics, grDevices, concaveman, prodlim, splines
 NeedsCompilation: no
-Packaged: 2023-02-13 16:04:20 UTC; fount
+Packaged: 2023-04-07 19:38:10 UTC; fount
 Author: Jessica Arbour [aut, cre] (<https://orcid.org/0000-0003-4506-158X>)
 Maintainer: Jessica Arbour <jessica.arbour@mtsu.edu>
 Repository: CRAN
-Date/Publication: 2023-02-14 10:00:14 UTC
+Date/Publication: 2023-04-07 19:50:02 UTC

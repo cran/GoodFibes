@@ -74,7 +74,7 @@ good.fibes <- function(images, zero.image, radius, threshold=NULL, cutoff, scale
       ### first measurements
       
       ucoords<-hemisphere.points(radius)
-      lpl<-points.generator(startx = startx, starty = starty, ucoords=ucoords, radius=radius,backstep=backstep)
+      lpl<-pointsGenerator(startx = startx, starty = starty, ucoords=ucoords, radius=radius,backstep=backstep)
       
       white.mat<-get.whites(imglist,lpl,depth)
       white.sd<-apply(white.mat,1,sd)
@@ -125,7 +125,7 @@ good.fibes <- function(images, zero.image, radius, threshold=NULL, cutoff, scale
       for(z in 1:length(images)){
         
         ucoords<-hemisphere.points(radius,backstep=backstep)
-        lpl<-points.generator(startx = new.startx, starty = new.starty, ucoords = ucoords, radius = radius,backstep=backstep)
+        lpl<-pointsGenerator(startx = new.startx, starty = new.starty, ucoords = ucoords, radius = radius,backstep=backstep)
         
         
         imseq<-(new.zero.image-backstep):(new.zero.image+radius)
@@ -212,7 +212,7 @@ good.fibes <- function(images, zero.image, radius, threshold=NULL, cutoff, scale
       }
       ###reset
       ucoords<-hemisphere.points(radius)
-      lpl<-points.generator(startx = startx, starty = starty, ucoords = ucoords, radius = radius,backstep=backstep)
+      lpl<-pointsGenerator(startx = startx, starty = starty, ucoords = ucoords, radius = radius,backstep=backstep)
       
       
       
@@ -291,7 +291,7 @@ good.fibes <- function(images, zero.image, radius, threshold=NULL, cutoff, scale
         
         
         ucoords<-hemisphere.points(radius,backstep=backstep)
-        lpl<-points.generator(startx = new.startx, starty = new.starty, ucoords = ucoords, radius = radius,backstep=backstep)
+        lpl<-pointsGenerator(startx = new.startx, starty = new.starty, ucoords = ucoords, radius = radius,backstep=backstep)
         
         
         ### new image list

@@ -14,7 +14,7 @@ function(images, n, save.images=FALSE){
     slice<-load.image(images[[i]])
     greys<-slice[which(slice>0)]
     
-    if(length(greys)==0){save.image("eq_",slice,file=paste(images[i],".png",sep=""))
+    if(length(greys)==0){save.image(slice,file=paste("eq_",images[i],".png",sep=""))
     } else {
       
       eqf <- ecdf(slice)

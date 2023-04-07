@@ -28,7 +28,7 @@ J. Arbour
 }
 
 \seealso{
-\code{\link{points.generator}}
+\code{\link{pointsGenerator}}
 }
 
 \keyword{internal}

@@ -9,7 +9,7 @@ Calculates a metric for fiber curvature. This is the ratio between the total len
 Optionally identified which fibers show unusual curvature (are outliers), for possible removal.
 }
 \usage{
-fiber.curve(fib.list, df, check = TRUE)
+fiber.curve(fib.list, df, check = TRUE, length.out=500)
 }
 \arguments{
   \item{fib.list}{
@@ -18,6 +18,9 @@ A list of fibers containing $fiber.points. Produced by good.fibes or the various
 Corresponds to the df argument in splines::ns. Determines the shape of the smoothing spline (df = 1 represents straight muscle fibers)}
   \item{check}{
 Should unusually curved fibers be identified?}
+  \item{length.out}{
+The number of straight line segments that the smoothed curve will be divided into for calculation of length
+}
 }
 \value{
 

@@ -1,4 +1,4 @@
-points.generator <-
+pointsGenerator <-
 function(startx, starty, ucoords, radius=radius, backstep){
   
   start.points<-cbind(rep(startx,radius+1),rep(starty,radius+1),rep(0,radius+1))
