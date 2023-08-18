@@ -1,5 +1,5 @@
 quality.check <-
-function(fib.list,images,res,min.length=NULL,length.out=200, df=2){
+function(fib.list,images,res=1,min.length=NULL,length.out=200, df=2){
   grey.list<-vector(length=length(fib.list),mode="list")
   
   for(i in 1:length(fib.list)){
@@ -9,7 +9,9 @@ function(fib.list,images,res,min.length=NULL,length.out=200, df=2){
     stops<-max(fib.points[,3])
     fb.df<-data.frame(x = fib.points[,1],y=fib.points[,2],z=fib.points[,3])
     newdata<-seq(starts,stops,length.out=length.out)
-    fit1 <- lm(cbind(x,y)~splines::ns(z,df=df), data = fb.df)
+    if(df==1){ fit1 <- tryCatch(lm(cbind(x,y)~z, data = fb.df))
+    } else {
+      fit1 <- tryCatch(lm(cbind(x,y)~nsp(z,df=df), data = fb.df))}
    fiber <- round(cbind(predict(fit1, newdata = list(z = newdata)),newdata),0)
     fiber<-unique(fiber)
     grey.check<-matrix(ncol=2,nrow=nrow(fiber))

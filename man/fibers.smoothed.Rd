@@ -14,7 +14,7 @@ fibers.smoothed(fib.list, df)
 A list of fibers with $fiber.points, produced by \code{\link{good.fibes}} or one of the cleaning and processing functions (e.g., fuse.fibers).
 }
   \item{df}{
-The degrees of freedom passed to splines::ns. Knots equal to df - 1 - intercept are set as breakpoints in the spline curve. A straight line path has a df of 1.
+The degrees of freedom passed to splines2::nsp. Knots equal to df - 1 - intercept are set as breakpoints in the spline curve. A straight line path has a df of 1.
 }
 }
 \value{

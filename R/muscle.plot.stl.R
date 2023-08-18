@@ -12,8 +12,11 @@ function(fiber.list, res = 1, df = 2, radius = 1, cols=NULL,
     if(mirror.axis){
       fiber.dat[,2]<-fiber.dat[,2]*-1
     }
-    fit <- lm(fiber.dat[,1:2] ~ splines::ns(fiber.dat[,3], df = df))
-    lines3d(cbind(predict(fit), fiber.dat[,3]),col=cols[j], alpha=0.8)
+    fb.df <- data.frame(x = fiber.dat[, 1], y = fiber.dat[,2], z = fiber.dat[, 3])
+    if(df==1){ fit <- tryCatch(lm(cbind(x,y)~z, data = fb.df))
+    } else {
+      fit <- tryCatch(lm(cbind(x,y)~nsp(z,df=df), data = fb.df))}
+    lines3d(cbind(predict(fit, newdata = list(z = fiber.dat[,3])), fiber.dat[,3]),col=cols[j], alpha=0.8)
   }
   
   

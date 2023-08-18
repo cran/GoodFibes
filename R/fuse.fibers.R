@@ -12,12 +12,16 @@ function(fiber.list,min.vox,min.improvement=0.25,df=2,length.out=100){
       
       fb.df1<-data.frame(x = fiber.list[[i]]$fiber.points[,1],y=fiber.list[[i]]$fiber.points[,2],z=fiber.list[[i]]$fiber.points[,3])
       newdata<-seq(min(fb.df1$z),max(fb.df1$z),length.out=length.out)
-      fit1 <- lm(cbind(x,y)~splines::ns(z,df=df), data = fb.df1)
+      if(df==1){ fit1 <- tryCatch(lm(cbind(x,y)~z, data = fb.df1))
+      } else {
+        fit1 <- tryCatch(lm(cbind(x,y)~nsp(z,df=df), data = fb.df1))}
       pred1 <- cbind(predict(fit1, newdata = list(z = newdata)))
       
       fb.df2<-data.frame(x = fiber.list[[j]]$fiber.points[,1],y=fiber.list[[j]]$fiber.points[,2],z=fiber.list[[j]]$fiber.points[,3])
       newdata<-seq(min(fb.df2$z),max(fb.df2$z),length.out=length.out)
-      fit2 <- lm(cbind(x,y)~splines::ns(z,df=df), data = fb.df2)
+      if(df==1){ fit2 <- tryCatch(lm(cbind(x,y)~z, data = fb.df2))
+      } else {
+        fit2 <- tryCatch(lm(cbind(x,y)~nsp(z,df=df), data = fb.df2))}
       pred2 <- cbind(predict(fit2, newdata = list(z = newdata)))
       
       
@@ -38,8 +42,10 @@ function(fiber.list,min.vox,min.improvement=0.25,df=2,length.out=100){
       if(improvement < min.improvement){next()}
       
       new.df<-data.frame(x=combined.fiber[,1],y=combined.fiber[,2],z=combined.fiber[,3])
-      fit <- lm(cbind(x,y) ~ splines::ns(z, df = df),data = new.df)
-      fib.smoothed<-cbind(predict(fit), combined.fiber[,3])
+      if(df==1){ fit <- tryCatch(lm(cbind(x,y)~z, data = new.df))
+      } else {
+        fit <- tryCatch(lm(cbind(x,y)~nsp(z,df=df), data = new.df))}
+      fib.smoothed<-cbind(predict(fit, newdata=list(z=combined.fiber[,3])), combined.fiber[,3])
       
       resid1<-sqrt(apply(((predict(fit, newdata=list(z=fiber.list[[i]]$fiber.points[,3])))-
                             fiber.list[[i]]$fiber.points[,1:2])^2,1,sum))

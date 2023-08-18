@@ -15,7 +15,7 @@ fiber.curve(fib.list, df, check = TRUE, length.out=500)
   \item{fib.list}{
 A list of fibers containing $fiber.points. Produced by good.fibes or the various cleaning functions (quality check, fuse.fibers, check.overlap)}
   \item{df}{
-Corresponds to the df argument in splines::ns. Determines the shape of the smoothing spline (df = 1 represents straight muscle fibers)}
+Corresponds to the df argument in splines2::nsp. Determines the shape of the smoothing spline (df = 1 represents straight muscle fibers)}
   \item{check}{
 Should unusually curved fibers be identified?}
   \item{length.out}{

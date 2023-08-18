@@ -11,9 +11,9 @@ fiber.lengths(fib.list, res = NULL, df = 2, length.out = 500)
   \item{fib.list}{
 A list of fibers containing $fiber.points. Produced by good.fibes or the various cleaning functions (quality check, fuse.fibers, check.overlap)}
   \item{res}{
-The resolution of the isometric voxels (e.g., linear dimension)}
+The resolution of the isometric voxels (i.e., the distance between images). Should be given as a linear measure (e.g., mm, um)}
   \item{df}{
-The degrees of freedom passed to splines::ns. A df = 1 produces a straight fiber, while values >1 allow fibers to curve.}
+The degrees of freedom passed to splines2::nsp. A df = 1 produces a straight fiber, while values >1 allow fibers to curve.}
   \item{length.out}{
 The number of straight line segments that the smoothed curve will be divided into for calculation of length
 }

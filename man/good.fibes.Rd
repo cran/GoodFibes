@@ -41,7 +41,7 @@ The number of seed points on the starting image. The seed points will generate a
 Optionally show the location of the tracker in the image stack at each step
 }
   \item{start.seed}{
-Optionally applies \emph{set.seed} in the tracker to make results reproducible from one run to the next.
+Optionally applies \emph{set.seed} in the tracker to make results reproducible from one run to the next. See set.seed for more details.
 }
   \item{allowed.black}{
 For noisy datasets, allows this number of voxels with grayscale values below \emph{cutoff} to be included in the possible paths without terminating the algorithm

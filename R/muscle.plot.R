@@ -23,6 +23,9 @@ function(fiber.dat,images,df=4,mirror.axis=FALSE,outline=50, size=2){
       }
    }
   points3d(fiber.dat,col="red",size=size)
-  fit <- lm(fiber.dat[,1:2] ~ splines::ns(fiber.dat[,3], df = df))
-  lines3d(cbind(predict(fit), fiber.dat[,3]))
+  fb.df <- data.frame(x = fiber.dat[, 1], y = fiber.dat[,2], z = fiber.dat[, 3])
+  if(df==1){ fit <- tryCatch(lm(cbind(x,y)~z, data = fb.df))
+  } else {
+    fit <- tryCatch(lm(cbind(x,y)~nsp(z,df=df), data = fb.df))}
+  lines3d(cbind(predict(fit, newdata = list(z = fiber.dat[,3])), fiber.dat[,3]))
 }

@@ -14,7 +14,9 @@ function(fib.list, res = NULL, df = 2, length.out=500){
     tryCatch({
       fb.df<-data.frame(x = fib.points[,1],y=fib.points[,2],z=fib.points[,3])
       newdata<-seq(starts,stops,length.out=length.out)
-      fit1 <- tryCatch(lm(cbind(x,y)~splines::ns(z,df=df), data = fb.df))
+      if(df==1){ fit1 <- tryCatch(lm(cbind(x,y)~z, data = fb.df))
+        } else {
+      fit1 <- tryCatch(lm(cbind(x,y)~nsp(z,df=df), data = fb.df))}
       fib.smoothed <- cbind(predict(fit1, newdata = list(z = newdata)),newdata)
       
       fib.segs<-vector(length=(nrow(fib.smoothed)-1))
