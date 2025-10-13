@@ -1,6 +1,6 @@
 crop.stack <-
 function(images, bounds=NULL, save.images=FALSE){
-  
+  import_inops(expose = "imager")
   
   if(!is.null(bounds)){
     xmin<-bounds[1]

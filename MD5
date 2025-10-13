@@ -1,11 +1,11 @@
-43847f0333baac4feb62c4d0766d6368 *DESCRIPTION
-437d064c695999eafccc188f08fe0a45 *NAMESPACE
+88074ec31b3d4680748f58e8fcfd4f91 *DESCRIPTION
+eabb85d99cc470981a19e61501c8c80b *NAMESPACE
 4852254e49f242d5421971889e37048d *R/boundary.check.R
 9bf3e03dbdf720ea9be462e3c8ee69de *R/check.overlap.R
 629f19996e3feb2ff63eea3561340e7d *R/color.scale.R
-9e65cda920f0d9fef34cae283f65a9e7 *R/crop.stack.R
+b22aeba1b049a211b16c9938aa9f7267 *R/crop.stack.R
 40f46626d4930b98dc3eb97a6184d90c *R/equalize.stack.R
-f64f8cc135d62cf79b895911cab3a8ac *R/fiber.angle.R
+b47f9ef5447e0e2d6d865a57a4b8ebfc *R/fiber.angle.R
 042f853f2aef6bcdc21a23aa0447ebbd *R/fiber.curve.R
 62eae6a78ffb6d75d23cca205f91ff6b *R/fiber.lengths.R
 b36e42ecafd0a4d77dde299fe372be8d *R/fibers.smoothed.R
@@ -21,7 +21,7 @@ e8cf9f2e4033c7a823c3dcab58b70d07 *R/muscle.plot.R
 0fadcfc2a7f57d11ec12e4697b5962f5 *R/quality.check.R
 0ee30c20e6078449716db8f5bcff6061 *R/sequencePlot.R
 e3733d99efc70cc2f3783453a3a5210e *R/thresholdPlot.R
-a7d14ff02044fa6c3cc001ef9bad859b *build/partial.rdb
+f66d38d473997b9c6ceb5ec0e3ee54a0 *build/partial.rdb
 7b3262579fe0c5b3b5bf4b7913a9246f *data/ant.final.rda
 5bb5e41b1e986e5d92008bb2cf62f643 *data/ant.raw.rda
 6ba9b20c36fb983d1fabcc78676c5622 *inst/extdata/ant_partial_downsampled_0228.png
@@ -33,7 +33,7 @@ cc31e0e95457b2c24655812f8a841b86 *man/boundary.check.Rd
 4bc43c0bf4103296c596d917ab874353 *man/color.scale.Rd
 99729253ab8ad660e2e9d752880ba81a *man/crop.stack.Rd
 c833d37d5864a60b1d203bcecabb0f4c *man/equalize.stack.Rd
-f8cfdf1ff0b2f1d1ac0b393787e26450 *man/fiber.angle.Rd
+a6e012324d50855289a4fd2841e00716 *man/fiber.angle.Rd
 b2c260e0d6cdbc5692d40b6021c29641 *man/fiber.curve.Rd
 b545f3c00311005242dd893380d796c3 *man/fiber.lengths.Rd
 9a6272c95a8c4fbe524f694323a1a40d *man/fibers.smoothed.Rd
