@@ -2,8 +2,8 @@ Package: GoodFibes
 Type: Package
 Title: Detection and Reconstruction of Muscle Fibers from diceCT Image
         Data
-Version: 0.1.12
-Date: 2025-10-10
+Version: 0.1.13
+Date: 2026-02-19
 Authors@R: person(given = "Jessica",
                       family = "Arbour",
                       role = c("aut", "cre"),
@@ -13,9 +13,9 @@ Description: Reconstruction of muscle fibers from image stacks using textural an
 License: GPL (>= 2)
 Depends: R(>= 3.5.0)
 Imports: rgl, stats, graphics, grDevices, concaveman, prodlim,
-        splines2, imager,tinycodet
+        splines2, imager
 NeedsCompilation: no
-Packaged: 2025-10-13 04:54:20 UTC; fount
+Packaged: 2026-02-19 21:37:43 UTC; fount
 Author: Jessica Arbour [aut, cre]
 Repository: CRAN
-Date/Publication: 2025-10-13 05:10:49 UTC
+Date/Publication: 2026-02-19 22:10:03 UTC

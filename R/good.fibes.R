@@ -1,5 +1,6 @@
 good.fibes <- function(images, zero.image, radius, threshold=NULL, cutoff, scaler=1, blackcut=0.95, seeds=1, show.plot=TRUE,start.seed=NULL,allowed.black=0,bound.buffer=0,backstep=0,verbose=TRUE){
   depth<-radius+1
+  if(length(channels(load.image(images[1])))>1){stop("images must be grayscale, try converting with imageJ (toggle option under import image sequence then resave")}
   if(is.null(threshold)){threshold<-cutoff}
   if(radius > 11){stop("radius cannot be more than 11")}
   if(threshold < cutoff){stop("threshold must be equal to or greater than cutoff")}

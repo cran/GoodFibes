@@ -10,7 +10,7 @@ importFrom("splines2",nsp)
 importFrom("stats",lm, predict,hclust,cutree,sd,quantile,IQR,dist,ecdf,na.omit)
 importFrom("graphics",plot,points,barplot,text,abline)
 import("imager")
-importFrom("tinycodet",import_inops)
+
 
 
 

@@ -1,9 +1,9 @@
-88074ec31b3d4680748f58e8fcfd4f91 *DESCRIPTION
-eabb85d99cc470981a19e61501c8c80b *NAMESPACE
+ff143561414dab79e4ee2d4bcf5716a0 *DESCRIPTION
+437d064c695999eafccc188f08fe0a45 *NAMESPACE
 4852254e49f242d5421971889e37048d *R/boundary.check.R
 9bf3e03dbdf720ea9be462e3c8ee69de *R/check.overlap.R
 629f19996e3feb2ff63eea3561340e7d *R/color.scale.R
-b22aeba1b049a211b16c9938aa9f7267 *R/crop.stack.R
+5f69466cd3d70718f6b651588c165a60 *R/crop.stack.R
 40f46626d4930b98dc3eb97a6184d90c *R/equalize.stack.R
 b47f9ef5447e0e2d6d865a57a4b8ebfc *R/fiber.angle.R
 042f853f2aef6bcdc21a23aa0447ebbd *R/fiber.curve.R
@@ -12,7 +12,7 @@ b36e42ecafd0a4d77dde299fe372be8d *R/fibers.smoothed.R
 481cbbcf1c3a8c8a97198aa27675b664 *R/fuse.fibers.R
 708f8ece9827a5d62e14fed1e045ab5c *R/fuse.fibers.auto.R
 26abba4c0fe184a671cdd7d6f1c9ba71 *R/get.whites.R
-e09442422dbece789825d5d02af37084 *R/good.fibes.R
+7fc2caf55515d09efdfcbedb757ba289 *R/good.fibes.R
 bd5a20314936c2f1f50d29ab78a96602 *R/hemisphere.points.R
 e8cf9f2e4033c7a823c3dcab58b70d07 *R/muscle.plot.R
 068ebdf1731e01abe975bac678f043c5 *R/muscle.plot.multi.R
@@ -21,7 +21,7 @@ e8cf9f2e4033c7a823c3dcab58b70d07 *R/muscle.plot.R
 0fadcfc2a7f57d11ec12e4697b5962f5 *R/quality.check.R
 0ee30c20e6078449716db8f5bcff6061 *R/sequencePlot.R
 e3733d99efc70cc2f3783453a3a5210e *R/thresholdPlot.R
-f66d38d473997b9c6ceb5ec0e3ee54a0 *build/partial.rdb
+d0bf68888aa9fa66f3b96b5a0f4e2600 *build/partial.rdb
 7b3262579fe0c5b3b5bf4b7913a9246f *data/ant.final.rda
 5bb5e41b1e986e5d92008bb2cf62f643 *data/ant.raw.rda
 6ba9b20c36fb983d1fabcc78676c5622 *inst/extdata/ant_partial_downsampled_0228.png
