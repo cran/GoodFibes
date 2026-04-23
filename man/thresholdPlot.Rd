@@ -26,8 +26,7 @@ Returns a plot
 }
 
 \references{
-Arbour, J. In Prep. GoodFibes: an R package for the detection of muscle fibers from diceCT scans.
-}
+Arbour, J. 2023. GoodFibes: an R package for the detection of muscle fibers from diceCT scans. \emph{Integrative Organismal Biology} 5(1): obad030.}
 \author{
 J. Arbour
 }
@@ -35,11 +34,11 @@ J. Arbour
 \code{\link{sequencePlot}}
 }
 \examples{
-
+\donttest{
 images <- dir(system.file("extdata", package = "GoodFibes"), ".png", full.names = TRUE)
 
 thresholdPlot(images, 1, 0.3)
 thresholdPlot(images, 1, 0.4)
 thresholdPlot(images, 1, 0.5)
-
+}
 }

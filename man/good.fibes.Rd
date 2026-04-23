@@ -84,7 +84,7 @@ A list with a length equal to or less than seeds (failed paths will be dropped).
 Can be combined with separate runs from other images planes using c(). See example
 }
 \references{
-Arbour, J. In Prep. GoodFibes: an R package for the detection of muscle fibers from diceCT scans.
+Arbour, J. 2023. GoodFibes: an R package for the detection of muscle fibers from diceCT scans. \emph{Integrative Organismal Biology} 5(1): obad030.
 }
 \author{
 J. Arbour

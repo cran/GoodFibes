@@ -24,7 +24,7 @@ Should the whole image stack be equalized and plotted?
 Creates a plot and optionally saves an image stack
 }
 \references{
-Arbour, J. In Prep. GoodFibes: an R package for the detection of muscle fibers from diceCT scans}
+Arbour, J. 2023. GoodFibes: an R package for the detection of muscle fibers from diceCT scans. \emph{Integrative Organismal Biology} 5(1): obad030.}
 \author{
 J. Arbour
 }

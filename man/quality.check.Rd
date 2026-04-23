@@ -38,8 +38,7 @@ Degrees of freedom passed to splines::ns in the smoothing of muscle fibers befor
 \item{problem.fibers}{The location of fibers in the original list object that have atypically poor quality and should be excluded from further analyses}
 }
 \references{
-Arbour, J. In Prep. GoodFibes: an R package for the detection of muscle fibers from diceCT scans.
-
+Arbour, J. 2023. GoodFibes: an R package for the detection of muscle fibers from diceCT scans. \emph{Integrative Organismal Biology} 5(1): obad030.
 Puffel, F. Pouget, A., Liu, X., Zuber, M., van de Kamp, T., Roces, F., and Labonte, D., 2021. \emph{Journal of the Royal Society Interface} 18: 20210424
 }
 \author{

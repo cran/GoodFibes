@@ -24,7 +24,7 @@ When TRUE, images are saved to the current directory using imager::save.image.
 The bounds to be used for cropping. Optionally crops and saves images to working folder.
 }
 \references{
-Arbour, J. In Prep. GoodFibes: an R package for the detection of muscle fibers from diceCT scans.}
+Arbour, J. 2023. GoodFibes: an R package for the detection of muscle fibers from diceCT scans. \emph{Integrative Organismal Biology} 5(1): obad030.}
 \author{
 J. Arbour}
 \seealso{

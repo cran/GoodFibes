@@ -1,62 +1,75 @@
 fiber.angle <-
-  function(fib.list, axis=3, centered=TRUE,reference="axis"){
+  function(fib.list, axis=3, reference="axis",endpoints=NULL,end.to.end=FALSE){
     fangle<-rep(NA,length(fib.list))
+    if(reference=="line.of.action"){axis=3}
+    if(reference=="line.of.action" & is.null(endpoints)){stop("need endpoints when calculating from line of action")}
     other.axis<-setdiff(1:3,axis)
     
-    if(axis==1){
-      adjx<-min(sapply(fib.list,function(x){min(x$fiber.points[,1])}))
-      nfib<-sum(sapply(fib.list,function(x){nrow(x$fiber.points)}))
-      adjy<-sum(sapply(fib.list,function(x){sum(x$fiber.points[,2])}))/nfib
-      adjz<-sum(sapply(fib.list,function(x){sum(x$fiber.points[,3])}))/nfib
+    if(reference=="line.of.action"){
+      ######## finding rotations for fibers using endpoints
+      lower<-which(endpoints[,3]==min(endpoints[,3]))
+      centering<-matrix(endpoints[lower,],nrow=2,ncol=3,byrow=TRUE)
+      centered<-endpoints-centering
+      reference.point<-which(!apply(centered,1,sum)==0)
+      v1<-sqrt(sum(centered[reference.point,c(1,3)]^2))
+      
+      thetay<-acos(centered[reference.point,3]/v1)
+      roty<-matrix(c(cos(thetay),0,sin(thetay), 0,1,0, -sin(thetay),0,cos(thetay)),ncol=3,nrow=3,byrow=TRUE)
+      rotated<-centered%*%roty
+      if(rotated[reference.point,1]>0.1){
+        thetay<- -thetay
+        roty<-matrix(c(cos(thetay),0,sin(thetay), 0,1,0, -sin(thetay),0,cos(thetay)),ncol=3,nrow=3,byrow=TRUE)
+        rotated<-centered%*%roty
+      }
+      
+      v2<-sqrt(sum(rotated[reference.point,c(2,3)]^2))
+      thetax<- acos(rotated[reference.point,3]/v2)
+      rotx<-matrix(c(1,0,0, 0,cos(thetax),-sin(thetax), 0,sin(thetax),cos(thetax)),ncol=3,nrow=3,byrow=TRUE)
+      rotated2<-rotated%*%rotx
+      if(rotated2[reference.point,2]>0.1){
+        thetax<- -thetax
+        rotx<-matrix(c(1,0,0, 0,cos(thetax),-sin(thetax), 0,sin(thetax),cos(thetax)),ncol=3,nrow=3,byrow=TRUE)
+        rotated2<-rotated%*%rotx
+      }
+      ######### rotating the fiber to the reference line
+      for(i in 1:length(fib.list)){
+        fib.list[[i]]$fiber.points <- (fib.list[[i]]$fiber.points-matrix(centering[1,],ncol=3,nrow=nrow(fib.list[[i]]$fiber.points),byrow=TRUE)) %*% roty %*% rotx
+      }
     }
     
-    if(axis==2){
-      adjy<-min(sapply(fib.list,function(x){min(x$fiber.points[,2])}))
-      nfib<-sum(sapply(fib.list,function(x){nrow(x$fiber.points)}))
-      adjx<-sum(sapply(fib.list,function(x){sum(x$fiber.points[,1])}))/nfib
-      adjz<-sum(sapply(fib.list,function(x){sum(x$fiber.points[,3])}))/nfib
-    }
     
-    if(axis==3){
-      adjz<-min(sapply(fib.list,function(x){min(x$fiber.points[,3])}))
-      nfib<-sum(sapply(fib.list,function(x){nrow(x$fiber.points)}))
-      adjx<-sum(sapply(fib.list,function(x){sum(x$fiber.points[,1])}))/nfib
-      adjy<-sum(sapply(fib.list,function(x){sum(x$fiber.points[,2])}))/nfib
-    }
     
     for(i in 1:length(fib.list)){
       fiber.dat<-fib.list[[i]]$fiber.points
-      if(centered){fiber.dat<-fiber.dat-matrix(c(adjx,adjy,adjz),nrow=nrow(fiber.dat),ncol=ncol(fiber.dat),byrow=TRUE)}
-      new.df<-data.frame(x=fiber.dat[,other.axis[1]],y=fiber.dat[,other.axis[2]],z=fiber.dat[,axis])
-      fit <- lm(z ~ x + y,data = new.df)
-      new.fibes<-cbind(new.df$x,new.df$y,predict(fit))
       
-      end<-dim(new.fibes)[1]
+      if(end.to.end){
+        fiber.dat<-fiber.dat[c(1,nrow(fiber.dat)),]
+      }
       
-      if(reference=="axis"){
-        adj<-sqrt((new.fibes[1,1]-new.fibes[end,1])^2+(new.fibes[1,2]-new.fibes[end,2])^2)
-        opp<-abs(new.fibes[1,3]-new.fibes[end,3])
-        fangle[i]<-90-atan(opp/adj)*180/pi
+      
+      
+      if(reference=="axis" | reference=="line.of.action"){
+        fangle[i]<-angle(abs(prcomp(fiber.dat)$rotation[,1]),c(0,0,1))
       }
       
       if(reference=="plane.xz"){
-        adj<-new.fibes[1,1]-new.fibes[end,1]
-        opp<-new.fibes[1,3]-new.fibes[end,3]
-        new.angle<-atan(opp/adj)*180/pi
-        if(new.angle<0){new.angle<-new.angle+180}
-        fangle[i]<-90-new.angle
-        
+        evec<-prcomp(fiber.dat)$rotation[c(1,3),1]
+        if(evec[2]<0){evec<-evec*-1}
+        fangle[i]<-90-angle(evec,c(1,0))
         
       }  
       if(reference=="plane.yz"){
-        adj<-new.fibes[1,2]-new.fibes[end,2]
-        opp<-new.fibes[1,3]-new.fibes[end,3]
-        new.angle<-atan(opp/adj)*180/pi
-        if(new.angle<0){new.angle<-new.angle+180}
-        fangle[i]<-90-new.angle
+        evec<-prcomp(fiber.dat)$rotation[c(2,3),1]
+        if(evec[2]<0){evec<-evec*-1}
+        fangle[i]<-90-angle(evec,c(1,0))
         
       }  
-      
+      if(reference=="plane.xy"){
+        evec<-prcomp(fiber.dat)$rotation[c(1,2),1]
+        if(evec[2]<0){evec<-evec*-1}
+        fangle[i]<-90-angle(evec,c(1,0))
+        
+      }  
     }
     fangle<-unlist(fangle)
     return(fangle)
